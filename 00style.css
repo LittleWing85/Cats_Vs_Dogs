@@ -1,0 +1,142 @@
+* {
+    box-sizing: border-box;
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
+    font-family: sans-serif;
+}
+
+/* rulesets for board and tiles */
+body {
+    margin: 0;
+    height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(245, 198, 205);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.board {
+    width: 700px;
+    height: 600px;
+    display: flex;
+}
+.column {
+    width: 100px;
+    height: 600px;
+    background-color: black;
+    position: relative;
+}
+.column:hover {
+    background-color: deeppink;
+}
+.column .circle {
+    width: 100px;
+    height: 100px;
+    padding: 1rem;
+}
+.column .circle:after {
+    content: "";
+    display: block;
+    background-color: rgb(245, 198, 205);
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+}
+.column .circle.player1:after {
+    background-image: url("media/cat.png");
+    background-size: 70px;
+    transform: translateX(0);
+    z-index: 10;
+    transition-property: transform;
+}
+.column .circle.player2:after {
+    background-image: url("media/dog.png");
+    background-size: 70px;
+    z-index: 10;
+}
+
+/* rulesets vor victory and intro*/
+.container {
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    background-color: black;
+    z-index: 10;
+}
+.background {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 10;
+}
+.photos {
+    margin-top: 5vh;
+    z-index: 10;
+}
+.win,
+.resetButton {
+    margin-top: 2rem;
+    font-size: 5em;
+    text-align: center;
+    z-index: 10;
+}
+.win {
+    color: rgb(245, 198, 205);
+    cursor: default;
+    z-index: 10;
+}
+.resetButton {
+    background-color: rgb(245, 198, 205);
+    width: 7em;
+    height: 2.5em;
+    border-radius: 10px;
+    padding-top: 0.4em;
+    cursor: pointer;
+    z-index: 10;
+}
+
+/*  rulesets for treat buttons & running away */
+.connect-four {
+    display: flex;
+    flex-direction: row;
+}
+.containerForTreats {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.treat {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    margin: 0rem 0rem 3rem 2rem;
+    width: 10rem;
+    height: 10rem;
+    background-color: white;
+    border-radius: 15px;
+    border: 5px solid deeppink;
+    cursor: pointer;
+}
+.thrown {
+    border: 5px solid rgb(78, 77, 77);
+}
+.runaway {
+    transform: translateX(-2000%);
+    transition-duration: 3s;
+}
+.relacement-circle {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    padding: 1rem;
+}
+.column .relacement-circle:after {
+    content: "";
+    display: block;
+    background-color: rgb(245, 198, 205);
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+}

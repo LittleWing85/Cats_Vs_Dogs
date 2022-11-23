@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="00style.css" />
+        <title>Connect Four</title>
+    </head>
+    <body>
+        <div class="container" id="player1VsPlayer2">
+            <div class="background">
+                <div class="photos"><img src="media/catsVsDogs.jpg" /></div>
+            </div>
+        </div>
+
+        <div class="container" id="player1WinsPlayer2">
+            <div class="background">
+                <div class="photos"><img src="media/catWinsDog.jpg" /></div>
+                <div><p class="win">CATS WIN!!!</p></div>
+                <div class="resetButton"><p>Play again!</p></div>
+            </div>
+        </div>
+
+        <div class="container" id="player2WinsPlayer1">
+            <div class="background">
+                <div class="photos"><img src="media/dogWinsCat.jpg" /></div>
+                <div><p class="win">DOGS WIN!!!</p></div>
+                <div class="resetButton"><p>Play again!</p></div>
+            </div>
+        </div>
+
+        <div class="connect-four">
+            <div class="board">
+                <div class="column">
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                </div>
+                <div class="column">
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                </div>
+                <div class="column">
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                </div>
+                <div class="column">
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                </div>
+                <div class="column">
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                </div>
+                <div class="column">
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                </div>
+                <div class="column">
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                </div>
+            </div>
+            <div class="containerForTreats">
+                <button class="treat" id="player1Treat">
+                    <img src="media/CatTreat.png" alt="" srcset="" />
+                </button>
+
+                <button class="treat" id="player2Treat">
+                    <img src="media/DoggieTreat.png" alt="" srcset="" />
+                </button>
+            </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="00script.js"></script>
+    </body>
+</html>
