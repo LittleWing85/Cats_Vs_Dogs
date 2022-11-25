@@ -47,16 +47,14 @@ body {
     background-image: url("media/cat.png");
     background-size: 70px;
     transform: translateX(0);
-    z-index: 10;
     transition-property: transform;
 }
 .column .circle.player2:after {
     background-image: url("media/dog.png");
     background-size: 70px;
-    z-index: 10;
 }
 
-/* rulesets vor victory and intro*/
+/* rulesets for victory and intro*/
 .container {
     height: 100vh;
     width: 100%;
