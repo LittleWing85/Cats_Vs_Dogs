@@ -22,7 +22,6 @@ var allDiags = [
     [4, 9, 14, 19, 24],
     [3, 8, 13, 28],
 ];
-var timeHideIntro = 1000;
 var timeVictory = 4000;
 var timeSpin = 1000;
 var amountPlayer2Treat = 0;
