@@ -69,13 +69,18 @@ body {
     z-index: 10;
 }
 .photos {
+    display: flex;
+    justify-content: center;
     margin-top: 5vh;
     z-index: 10;
+}
+.photos img {
+    height: 60vh;
 }
 .win,
 .resetButton {
     margin-top: 2rem;
-    font-size: 5em;
+    font-size: 5vh;
     text-align: center;
     z-index: 10;
 }
@@ -87,9 +92,9 @@ body {
 .resetButton {
     background-color: rgb(245, 198, 205);
     width: 7em;
-    height: 2.5em;
+    /*     height: 2.5em; */
     border-radius: 10px;
-    padding-top: 0.4em;
+    padding: 0.4em;
     cursor: pointer;
     z-index: 10;
 }

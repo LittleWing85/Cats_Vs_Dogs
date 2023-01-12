@@ -4,11 +4,10 @@ setTimeout(function () {
     $("#player1VsPlayer2").hide();
 }, 2000);
 
-var $board = $(".board");
-var $columns = $board.find(".column");
-var $allCircles = $(".circle");
-var currentPlayer = 1; // cats are player1, dogs are player2
-var allDiags = [
+const $board = $(".board");
+const $columns = $board.find(".column");
+const $allCircles = $(".circle");
+const allDiags = [
     [2, 9, 16, 23],
     [1, 8, 15, 22, 29],
     [0, 7, 14, 21, 28, 35],
@@ -22,25 +21,26 @@ var allDiags = [
     [4, 9, 14, 19, 24],
     [3, 8, 13, 28],
 ];
-var timeVictory = 4000;
-var timeSpin = 1000;
-var amountPlayer2Treat = 0;
-var amountPlayer1Treat = 0;
-var victoryTracker = false;
+const timeVictory = 4000;
+const timeSpin = 1000;
+let currentPlayer = 1; // cats are player1, dogs are player2
+let amountPlayer2Treat = 0;
+let amountPlayer1Treat = 0;
+let victoryTracker = false;
 
 //calls functions for placing tile, checking victory and possibly victory when user selects column to place tile
 $columns.on("click", function () {
     if (victoryTracker === false) {
-        var $circles = $(this).find(".circle");
-        var rowIndex = placeTile($circles);
-        var verticalVictory = checkVictory($circles);
-        var $row = $();
+        const $circles = $(this).find(".circle");
+        const rowIndex = placeTile($circles);
+        const verticalVictory = checkVictory($circles);
+        let $row = $();
         $columns.each(function () {
-            var $circle = $(this).find(".circle").eq(rowIndex);
+            const $circle = $(this).find(".circle").eq(rowIndex);
             $row = $row.add($circle);
         });
-        var horizontalVictory = checkVictory($row);
-        var diagonalVictory = checkVictoryDiag();
+        const horizontalVictory = checkVictory($row);
+        const diagonalVictory = checkVictoryDiag();
         if (horizontalVictory || verticalVictory || diagonalVictory) {
             victory();
         }
@@ -64,14 +64,14 @@ $("#player1Treat").on("click", function () {
     ) {
         amountPlayer1Treat++;
         $("#player1Treat").addClass("thrown");
-        var player1RunsAway = new Audio("media/WatermelonMeowMeowCut.mp3");
+        const player1RunsAway = new Audio("media/WatermelonMeowMeowCut.mp3");
         player1RunsAway.play();
-        var circlesWithClassPlayer1 = $(".player1");
-        var randomNumber = Math.floor(
+        const circlesWithClassPlayer1 = $(".player1");
+        const randomNumber = Math.floor(
             Math.random() * circlesWithClassPlayer1.length
         );
-        var col = circlesWithClassPlayer1.eq(randomNumber).parent();
-        var replacement = $("<div>", {
+        const col = circlesWithClassPlayer1.eq(randomNumber).parent();
+        const replacement = $("<div>", {
             class: "relacement-circle",
         }).css({
             top: circlesWithClassPlayer1.eq(randomNumber).position().top,
@@ -103,14 +103,14 @@ $("#player2Treat").on("click", function () {
     ) {
         amountPlayer2Treat++;
         $("#player2Treat").addClass("thrown");
-        var player2RunsAway = new Audio("media/WhoLetTheDogsOut.mp3");
+        const player2RunsAway = new Audio("media/WhoLetTheDogsOut.mp3");
         player2RunsAway.play();
-        var circlesWithClassPlayer2 = $(".player2");
-        var randomNumber = Math.floor(
+        const circlesWithClassPlayer2 = $(".player2");
+        const randomNumber = Math.floor(
             Math.random() * circlesWithClassPlayer2.length
         );
-        var col = circlesWithClassPlayer2.eq(randomNumber).parent();
-        var replacement = $("<div>", {
+        const col = circlesWithClassPlayer2.eq(randomNumber).parent();
+        const replacement = $("<div>", {
             class: "relacement-circle",
         }).css({
             top: circlesWithClassPlayer2.eq(randomNumber).position().top,
@@ -135,7 +135,7 @@ $("#player2Treat").on("click", function () {
 
 //places tile in selected column
 function placeTile($circles) {
-    for (var i = $circles.length - 1; i >= 0; i--) {
+    for (let i = $circles.length - 1; i >= 0; i--) {
         if (
             $circles.eq(i).hasClass("player1") ||
             $circles.eq(i).hasClass("player2")
@@ -151,10 +151,10 @@ function placeTile($circles) {
 
 //checks diagonal victory after tile was inserted
 function checkVictoryDiag() {
-    for (var j = 0; j < allDiags.length; j++) {
-        var diag = allDiags[j];
-        var count = 0;
-        for (var i = 0; i < diag.length; i++) {
+    for (let j = 0; j < allDiags.length; j++) {
+        const diag = allDiags[j];
+        let count = 0;
+        for (let i = 0; i < diag.length; i++) {
             if ($allCircles.eq(diag[i]).hasClass("player" + currentPlayer)) {
                 count++;
                 if (count === 4) {
@@ -170,8 +170,8 @@ function checkVictoryDiag() {
 
 //checks horizontal and vertical victory after tile was inserted
 function checkVictory(param) {
-    var count = 0;
-    for (var i = 0; i < param.length; i++) {
+    let count = 0;
+    for (let i = 0; i < param.length; i++) {
         if (param.eq(i).hasClass("player" + currentPlayer)) {
             count++;
             if (count === 4) {
@@ -186,25 +186,25 @@ function checkVictory(param) {
 
 //checks victory after treat was thrown
 function checkTreatVictory() {
-    for (var i = 0; i < $(".column").length; i++) {
-        var $circles = $(".column").eq(i).find(".circle");
-        var verticalVictory = checkVictory($circles);
+    for (let i = 0; i < $(".column").length; i++) {
+        const $circles = $(".column").eq(i).find(".circle");
+        const verticalVictory = checkVictory($circles);
         if (verticalVictory) {
             victory();
         }
     }
-    for (var k = 0; k < $(".column").eq(0).find(".circle").length; k++) {
-        var $row0 = $();
-        for (var j = 0; j < $(".column").length; j++) {
-            var $circleOfRow = $(".column").eq(j).find(".circle").eq(k);
+    for (let k = 0; k < $(".column").eq(0).find(".circle").length; k++) {
+        const $row0 = $();
+        for (let j = 0; j < $(".column").length; j++) {
+            const $circleOfRow = $(".column").eq(j).find(".circle").eq(k);
             $row0 = $row0.add($circleOfRow);
-            var horizontalVictory0 = checkVictory($row0);
+            const horizontalVictory0 = checkVictory($row0);
             if (horizontalVictory0) {
                 victory();
             }
         }
     }
-    var diagonalVictory = checkVictoryDiag();
+    const diagonalVictory = checkVictoryDiag();
     if (diagonalVictory) {
         victory();
     }
@@ -226,13 +226,13 @@ function victory() {
         $board.addClass("spin");
     }, timeSpin);
     if (currentPlayer === 1) {
-        var musicVictoryPlayer1 = new Audio("media/CoolForCatsCut.mp3");
+        const musicVictoryPlayer1 = new Audio("media/CoolForCatsCut.mp3");
         musicVictoryPlayer1.play();
         setTimeout(function () {
             $("#player1WinsPlayer2").show();
         }, timeVictory);
     } else {
-        var musicVictoryPlayer2 = new Audio("media/ElBaileDelPerritoCut.mp3");
+        const musicVictoryPlayer2 = new Audio("media/ElBaileDelPerritoCut.mp3");
         musicVictoryPlayer2.play();
         setTimeout(function () {
             $("#player2WinsPlayer1").show();
